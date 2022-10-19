@@ -1,0 +1,35 @@
+pipeline {
+    agent any
+    parameters {
+        string(name: 'NAME', description: 'Entrer votre nom')
+        string(name: 'DESCRIPTION', description: 'Entrer votre description')
+        booleanParam(name: 'CASESKIP', description: 'Voulez-vous skip ?')
+        choice(name: 'ROLE',choices: ['Dev', 'Ops'], description:'Choisir le role')
+        password(name: 'PWD', description: 'Entrer le mdp')
+        choice(name: 'SHOWPWD',choices: ['Oui', 'Non'], description:'Voir le mdp ?')
+    }
+    stages {
+        stage('Printing name') {
+            steps {
+                script {
+                    def name = "${params.NAME}"
+                    def desc = "${params.DESCRIPTION}"
+                    def caseskip = "${params.CASE}"
+                    def role = "${params.ROLE}"
+                    def pwd = "${params.PWD}"
+                    def showpwd = "${params.SHOWPWD}"
+                    
+                    if(showpwd == "Oui"){
+                        
+                        echo "Vous avez choisi d'assigner $name qui est spécialiste $desc et qui joue le role de $role. Le mot de passe de l'utilisateur est le suivant : $pwd"
+              
+
+                    } else{
+                        echo "Vous avez choisi d'assigner $name qui est spécialiste $desc et qui joue le role de $role"
+
+                }
+            }
+        }
+   }
+ }
+}
