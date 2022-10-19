@@ -9,7 +9,7 @@ pipeline {
         choice(name: 'SHOWPWD',choices: ['Oui', 'Non'], description:'Voir le mdp ?')
     }
     stages {
-        stage('Printing name') {
+        stage('Personne choisie') {
             steps {
                 script {
                     def name = "${params.NAME}"
