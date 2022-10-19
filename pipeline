@@ -21,7 +21,7 @@ pipeline {
                     
                     if(showpwd == "Oui"){
                         
-                        echo "Vous avez choisi d'assigner $name qui est spécialiste $desc et qui joue le role de $role. Le mot de passe de l'utilisateur est le suivant : $pwd"
+                        echo "Vous avez choisi d'assigner $name qui est specialiste $desc et qui joue le role de $role. Le mot de passe de l'utilisateur est le suivant : $pwd"
               
 
                     } else{
